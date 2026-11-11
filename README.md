@@ -28,10 +28,10 @@
 - ⌘E 与 Chrome 的「查找选中文字」有冲突，因此以实机测试结果为准；如果浏览器优先处理原生功能，在快捷键设置里改键即可。
 
 ## 界面
+<img width="1229" height="754" alt="image" src="https://github.com/user-attachments/assets/cb103db4-4c3a-4bf2-87a1-16a6eb34a450" />
 
 ![⌘E 唤出的居中浮层](docs/e2e/1-cmdE-overlay.png)
 
-![受限页面使用的备用面板](docs/e2e/fallback-panel.png)
 
 ## 检索规则
 
