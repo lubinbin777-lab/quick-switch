@@ -1,0 +1,170 @@
+{
+  "results": [
+    {
+      "n": 1,
+      "title": "⌘E 打开浮层、可直接输入、Esc 关闭",
+      "status": "通过",
+      "detail": "真实 ⌘E 触发=⌘E，浮层 11 行（最近访问 / 2 项），Esc 关闭=true，注入节点清除=true"
+    },
+    {
+      "n": 2,
+      "title": "输入 example.com 回车，新标签打开该网址",
+      "status": "通过",
+      "detail": "⌘E 打开，输入值=\"example.com\"，新标签 https://example.com/，标签数 3→4"
+    },
+    {
+      "n": 3,
+      "title": "相同网址再次回车切换原标签而不新增",
+      "status": "未通过",
+      "detail": "标签数 4→4，当前标签 "
+    },
+    {
+      "n": 4,
+      "title": "输入已打开网页标题切换到标签且不刷新",
+      "status": "通过",
+      "detail": "当前标签 http://127.0.0.1:64088/b.html，实例标记 B-1794313624472 → B-1794313624472（相同=未刷新），候选 搜索结果 / 2 项 / 验收页 B · 另一个标签"
+    },
+    {
+      "n": 5,
+      "title": "目标标签移到另一窗口后仍能切换",
+      "status": "通过",
+      "detail": "目标窗口 1481594696，最后聚焦窗口 1481594696，当前标签 http://127.0.0.1:64088/b.html，未刷新=true"
+    },
+    {
+      "n": 6,
+      "title": "普通文字回车使用当前默认搜索引擎",
+      "status": "部分通过",
+      "detail": "跳转 https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3D%25E7%259E%25AC%25E6%2590%259C（自动化连续请求触发 Google 人机验证，未到结果页），标签数 4→5"
+    },
+    {
+      "n": 7,
+      "title": "中文组合输入时 Enter 不提前跳转",
+      "status": "通过",
+      "detail": "组合中值=\"中文\"，Enter 后标签数 5→5，浮层仍在=true（CDP imeSetComposition）"
+    },
+    {
+      "n": 8,
+      "title": "Chrome 新标签页按 ⌘E 打开备用弹窗窗口",
+      "status": "通过",
+      "detail": "⌘E 在受限页（chrome://newtab）注入被拒 → 独立弹窗窗口已打开"
+    },
+    {
+      "n": 9,
+      "title": "原生 ⌘T 行为保留",
+      "status": "部分通过",
+      "detail": "快捷键页只剩 1 条命令：toggle-palette=⌘E，已无「激活该扩展程序」；CDP 注入 ⌘T 后标签数 5→5（原生快捷键不经过扩展，需人工按键最终确认）"
+    }
+  ],
+  "evidence": {
+    "commands": [
+      {
+        "description": "打开 / 关闭瞬搜面板",
+        "name": "toggle-palette",
+        "shortcut": "⌘E"
+      }
+    ],
+    "actionApi": "undefined",
+    "browser": "Chrome/156.0.8078.4",
+    "extensionId": "agbcahfnhkoekdpiacbnmgaalheoichh",
+    "trigger_1": "⌘E",
+    "item1": {
+      "trigger": "⌘E",
+      "text": [
+        "esc",
+        "最近访问",
+        "2 项",
+        "验收页 C · 第三个标签",
+        "127.0.0.1/c.html",
+        "切换到标签",
+        "→",
+        "验收页 B · 另一个标签",
+        "127.0.0.1/b.html",
+        "切换到标签"
+      ]
+    },
+    "trigger_2": "⌘E",
+    "item2": {
+      "trigger": "⌘E",
+      "input": "Input.insertText",
+      "value": "example.com",
+      "url": "https://example.com/",
+      "before": 3,
+      "after": 4
+    },
+    "trigger_3": "⌘E",
+    "item3": {
+      "trigger": "⌘E",
+      "before": 4,
+      "after": 4,
+      "active": ""
+    },
+    "trigger_4": "⌘E",
+    "item4": {
+      "trigger": "⌘E",
+      "text": [
+        "esc",
+        "搜索结果",
+        "2 项",
+        "验收页 B · 另一个标签",
+        "127.0.0.1/b.html",
+        "切换到标签",
+        "→",
+        "验收页 B"
+      ],
+      "active": "http://127.0.0.1:64088/b.html",
+      "mb": "B-1794313624472",
+      "ma": "B-1794313624472"
+    },
+    "trigger_5": "⌘E",
+    "item5": {
+      "trigger": "⌘E",
+      "moved": {
+        "windowId": 1481594696,
+        "tabId": 1481594693
+      },
+      "focused": {
+        "id": 1481594696,
+        "focused": true
+      },
+      "active": "http://127.0.0.1:64088/b.html"
+    },
+    "trigger_6": "⌘E",
+    "item6": {
+      "trigger": "⌘E",
+      "text": [
+        "esc",
+        "搜索结果",
+        "1 项",
+        "瞬搜验收测试"
+      ],
+      "url": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3D%25E7%259E%25AC%25E6%2590%259C%25E9%25AA%258C%25E6%2594%25B6%25E6%25B5%258B%25E8%25AF%2595%26sourceid%3Dchrome%26ie%3DUTF-8%26sei%3Drw3zapehMJvGkPIProKFoQs&q=EgQY-fUzGLCbzNcGIjARv5unKGqrqUty2wmks9g-v6_4fVEVh9NXe4sNCZX6loQ_FbfgYo4fa7VomVaztRQyAnJSWgFDYP6khpO33Pm3DA",
+      "clean": false,
+      "captcha": true
+    },
+    "trigger_7": "⌘E",
+    "item7": {
+      "trigger": "⌘E",
+      "mode": "CDP imeSetComposition",
+      "value": "中文",
+      "before": 5,
+      "during": 5,
+      "still": true
+    },
+    "item8": {
+      "url": "chrome://newtab/",
+      "popup": "chrome-extension://agbcahfnhkoekdpiacbnmgaalheoichh/popup.html?context",
+      "popupText": []
+    },
+    "item9": {
+      "commands": [
+        "toggle-palette=⌘E"
+      ],
+      "before": 5,
+      "after": 5,
+      "legacyAction": false
+    }
+  },
+  "notes": [
+    "输入法为浏览器合成组合事件，真实中文输入法仍需人工确认。"
+  ]
+}
