@@ -30,9 +30,6 @@
 ## 界面
 <img width="1229" height="754" alt="image" src="https://github.com/user-attachments/assets/cb103db4-4c3a-4bf2-87a1-16a6eb34a450" />
 
-![⌘E 唤出的居中浮层](docs/e2e/1-cmdE-overlay.png)
-
-
 ## 检索规则
 
 - 空输入显示最近使用/访问的页面，默认最多 8 条。
